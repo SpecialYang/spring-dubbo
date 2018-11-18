@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 添加 DUBBO SCHEMA -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--当前项目在分布式架构中唯一名称-->
+    <dubbo:application name="springboot-dubbo" owner="specialyang"/>
+
+    <!--注册中心地址-->
+    <dubbo:registry address="zookeeper://localhost:2181?backup=localhost:2182,localhost:2183" />
+
+    <import resource="classpath*:META-INF/client/order-customer.xml"/>
+    <import resource="classpath*:META-INF/client/user-customer.xml"/>
+
+
+</beans>
